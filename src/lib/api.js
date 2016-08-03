@@ -9,6 +9,14 @@ instance.new = function (url) {
   // this.defaults.headers = {'Content-Type' : 'application/x-www-form-urlencoded'};
 };
 
+instance.setTokenPath = function (path = '/token') {
+  this.tokenPath = path;
+}
+
+instance.getTokenPath = function () {
+  return this.tokenPath || '/token';
+}
+
 if (Cookie.get('token')) {
   var token = Cookie.get('token');
   instance.interceptors.request.use(function(config){
@@ -18,7 +26,7 @@ if (Cookie.get('token')) {
 }
 
 instance.login = function(user, pass) {
-  return this.post('token/', {username: user, password:pass})
+  return this.post(this.getTokenPath(), {username: user, password:pass})
     .then(function(resp){
       var token = resp.data.token;
       Cookie.set('token', token);

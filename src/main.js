@@ -2,12 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory, hashHistory } from 'react-router';
 
-import { getUser, logout } from 'api/api';
-
-//login('Mike', 'password');
-getUser();
-logout();
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -15,18 +9,13 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-// Layout
-import ExampleLayout from 'layout/example';
-
 // UI
-import ExampleComponent from 'ui/example';
+import Forms from 'ui/Forms';
 
 const Site = (
   <MuiThemeProvider>
     <Router history={hashHistory}>
-      <Route component={ExampleLayout}>
-        <Route path="/" component={ExampleComponent} />
-      </Route>
+      <Route path="/" component={Forms} />
     </Router>
   </MuiThemeProvider>
 );
