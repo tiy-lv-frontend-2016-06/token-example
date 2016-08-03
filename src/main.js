@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, browserHistory, hashHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -14,7 +14,7 @@ import Forms from 'ui/Forms';
 
 const Site = (
   <MuiThemeProvider>
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
       <Route path="/" component={Forms} />
     </Router>
   </MuiThemeProvider>

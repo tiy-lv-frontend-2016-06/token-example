@@ -2,18 +2,6 @@ var express = require('express');
 var path = require('path');
 var chalk = require('chalk');
 
-
-
-var sha1 = require('sha1');
-var pass = 'karen123';
-
-console.log(sha1(pass + '238jfskrj3'));
-
-
-
-
-
-
 module.exports = function (config) {
   var defaultConfig = {
     root: __dirname,
